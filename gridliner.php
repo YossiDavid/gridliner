@@ -7,6 +7,7 @@ if (!defined('ABSPATH')) exit;
  * Author URI: https://shos.digital
  * Version: 1.0.0
  * Description: Add the Styliner grid system to Elementor editor, and enable it on the Elementor system preferences
+ * Text Domain: gridliner
  */
 
 add_filter('plugin_row_meta', function ($links_array, $plugin_file_name, $plugin_data, $status) {
@@ -36,3 +37,18 @@ add_action('elementor/preview/enqueue_styles', function () {
 add_action('elementor/editor/init', function () {
 	require_once plugin_dir_path(__FILE__) . '/grid-settings.php';
 });
+
+
+//Update Manager
+require plugin_dir_path(__FILE__) . '/plugin-update-checker.php';
+
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+$myUpdateChecker = PucFactory::buildUpdateChecker(
+	'https://github.com/YossiDavid/gridliner',
+	__FILE__, //Full path to the main plugin file or functions.php.
+	'gridliner'
+);
+
+//Set the branch that contains the stable release.
+$myUpdateChecker->setBranch('master');
