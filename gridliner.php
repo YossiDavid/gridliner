@@ -38,7 +38,6 @@ add_action('elementor/editor/init', function () {
 	require_once plugin_dir_path(__FILE__) . '/grid-settings.php';
 });
 
-
 //Update Manager
 require plugin_dir_path(__FILE__) . '/plugin-update-checker.php';
 
