@@ -39,7 +39,7 @@ add_action('elementor/editor/init', function () {
 });
 
 //Update Manager
-require plugin_dir_path(__FILE__) . '/plugin-update-checker.php';
+require plugin_dir_path(__FILE__) . 'plugin-update-checker-master/plugin-update-checker.php';
 
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 

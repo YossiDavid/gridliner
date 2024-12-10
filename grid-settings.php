@@ -13,6 +13,12 @@ function add_preferences_controls(\Elementor\Core\Settings\EditorPreferences\Mod
 	// $grid_color = $grid_color ? $grid_color : 'rgb(255 0 0 / .15)';
 	// $columns_color = $columns_color ? $columns_color : 'rgb(255 0 0 / .04)';
 	// $rows_color = $rows_color ? $rows_color : 'rgb(255 0 0 / .04)';
+	$preferences->start_injection(
+		[
+			'at' => 'after',
+			'of' => 'show_hidden_elements',
+		]
+	);
 
 	$preferences->add_control(
 		'styliner_grid',
@@ -26,6 +32,7 @@ function add_preferences_controls(\Elementor\Core\Settings\EditorPreferences\Mod
 		]
 	);
 
+	$preferences->end_injection();
 	// $preferences->add_control(
 	// 	'grid_color',
 	// 	[
