@@ -33,18 +33,11 @@ function add_preferences_controls(\Elementor\Core\Settings\EditorPreferences\Mod
 	);
 
 	$preferences->add_control(
-		'styliner_grid_opacity',
+		'styliner_grid_color',
 		[
-			'label' => esc_html__('Grid Opacity', 'textdomain'),
-			'type' => \Elementor\Controls_Manager::SLIDER,
-			'range' => [
-				'min' => 0,
-				'max' => 100,
-			],
-			'default' => ['size' => 100],
-			'selectors' => [
-				'#styliner-grid-system' => 'opacity: {{SIZE}}%;'
-			],
+			'label' => esc_html__('Grid Color', 'textdomain'),
+			'type' => \Elementor\Controls_Manager::COLOR,
+			'default' => "#ff000026",
 			'condition' => [
 				'styliner_grid' => 'yes'
 			]

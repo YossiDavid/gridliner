@@ -25,8 +25,19 @@ add_filter('plugin_row_meta', function ($links_array, $plugin_file_name, $plugin
 
 add_action('elementor/preview/enqueue_scripts', function () {
 	$elementor_preferences = get_user_meta(get_current_user_id(), 'elementor_preferences', true);
-	wp_register_script('gridliner', plugins_url('src/index.js', __FILE__));
+	wp_register_script(
+		'gridliner',
+		plugins_url('src/index.js', __FILE__),
+		['elementor-frontend'],
+		'1.0.0',
+		true
+	);
 	wp_enqueue_script('gridliner');
+});
+
+add_action('elementor/editor/after_enqueue_scripts', function () {
+	wp_register_script('gridliner_color', plugins_url('src/grid-color.js', __FILE__));
+	wp_enqueue_script('gridliner_color');
 });
 
 add_action('elementor/preview/enqueue_styles', function () {
