@@ -32,25 +32,6 @@ function add_preferences_controls(\Elementor\Core\Settings\EditorPreferences\Mod
 		]
 	);
 
-	$preferences->add_control(
-		'styliner_grid_opacity',
-		[
-			'label' => esc_html__('Grid Opacity', 'textdomain'),
-			'type' => \Elementor\Controls_Manager::SLIDER,
-			'range' => [
-				'min' => 0,
-				'max' => 100,
-			],
-			'default' => ['size' => 100],
-			'selectors' => [
-				'#styliner-grid-system' => 'opacity: {{SIZE}}%;'
-			],
-			'condition' => [
-				'styliner_grid' => 'yes'
-			]
-		]
-	);
-
 	$preferences->end_injection();
 }
 add_action('elementor/element/editor-preferences/preferences/before_section_end', 'add_preferences_controls');
