@@ -5,7 +5,7 @@ if (!defined('ABSPATH')) exit;
  * Plugin Name: Gridliner
  * Author: Yossi David
  * Author URI: https://shos.digital
- * Version: 1.0.0
+ * Version: 1.0.1
  * Description: Add the Styliner grid system to Elementor editor, and enable it on the Elementor system preferences
  * Text Domain: gridliner
  */
