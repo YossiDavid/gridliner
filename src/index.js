@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	window.onresize = () => grid()
 
 	// Example: Dynamically update colors (this would come from your Elementor controls)
-	window.updateGridColors = updateColors // Expose the update function globally
+	// window.updateGridColors = updateColors // Expose the update function globally
 })
 
 // ResizeObserver to handle updates
