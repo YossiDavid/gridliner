@@ -32,6 +32,24 @@ function add_preferences_controls(\Elementor\Core\Settings\EditorPreferences\Mod
 		]
 	);
 
+	$preferences->add_control(
+		'width',
+		[
+			'label' => esc_html__( 'Grid Opacity', 'textdomain' ),
+			'type' => \Elementor\Controls_Manager::SLIDER,
+			'range' => [
+				'min' => 0,
+				'max' => 100,
+			],
+			'default' => [
+				'size' => 100,
+			],
+			'selectors' => [
+				'#styliner-grid-system' => 'opacity: {{UNIT}};',
+			],
+		]
+	);
+
 	$preferences->end_injection();
 	// $preferences->add_control(
 	// 	'grid_color',
