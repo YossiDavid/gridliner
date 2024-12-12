@@ -33,34 +33,5 @@ function add_preferences_controls(\Elementor\Core\Settings\EditorPreferences\Mod
 	);
 
 	$preferences->end_injection();
-	// $preferences->add_control(
-	// 	'grid_color',
-	// 	[
-	// 		'label' => esc_html__('Grids Color', 'textdomain'),
-	// 		'type' => \Elementor\Controls_Manager::COLOR,
-	// 		'default' => $grid_color,
-	// 		'frontend_available' => true,
-	// 	]
-	// );
-
-	// $preferences->add_control(
-	// 	'columns_color',
-	// 	[
-	// 		'label' => esc_html__('Columns Color', 'textdomain'),
-	// 		'type' => \Elementor\Controls_Manager::COLOR,
-	// 		'default' => $columns_color,
-	// 		'frontend_available' => true,
-	// 	]
-	// );
-
-	// $preferences->add_control(
-	// 	'rows_color',
-	// 	[
-	// 		'label' => esc_html__('Rows Color', 'textdomain'),
-	// 		'type' => \Elementor\Controls_Manager::COLOR,
-	// 		'default' => $rows_color,
-	// 		'frontend_available' => true,
-	// 	]
-	// );
 }
 add_action('elementor/element/editor-preferences/preferences/before_section_end', 'add_preferences_controls');
