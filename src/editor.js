@@ -1,17 +1,21 @@
-window.addEventListener("DOMContentLoaded", () => {
-	console.log(elementor)
-	const preferences = elementor.settings.editorPreferences
-	console.log(preferences)
-	console.log(preferences.getSettings())
-	console.log(preferences.getEditedView())
-	console.log(preferences.getDataToSave())
-	console.log(preferences.on())
-	preferences.on("update", () => console.log(preferences.getSettings()))
+jQuery( window ).on( "elementor:init", () => {
+	// On "document:loaded" elementor event
+	elementor.on( "document:loaded", () => {
+		const updateGridEvent = new Event("stylinerGridUpdate");
+		elementor.settings.editorPreferences.model.on( 'change', ( view ) => {
+			let shouldDraw = false;
+			for ( let setting in view.changed ) {
+				// only listen to our controls
+				if ( ! [ 'styliner_grid', 'styliner_grid_color' ].includes( setting ) ) {
+					continue;
+				}
 
-	preferences.on("change:styliner_grid", (_, value) => {
-		const canvas = ensureCanvas()
-		canvas.style.display = value === "yes" ? "block" : "none"
-	})
+				shouldDraw = true;
+			}
 
-	window.top.addEventListener("elementor/commands/run/after", console.log(e))
-})
+			if ( shouldDraw ) {
+				elementor.$preview[ 0 ].contentWindow.dispatchEvent(updateGridEvent);
+			}
+		} );
+	} );
+} );
