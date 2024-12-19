@@ -4,7 +4,8 @@ if (!defined('ABSPATH')) exit;
 /**
  * @param \Elementor\Core\Settings\EditorPreferences\Model $preferences The editor preferences model.
  */
-function add_preferences_controls( \Elementor\Core\Settings\EditorPreferences\Model $preferences )  {
+function add_preferences_controls(\Elementor\Core\Settings\EditorPreferences\Model $preferences)
+{
 	$preferences->start_injection(
 		[
 			'at' => 'after',
@@ -37,11 +38,23 @@ function add_preferences_controls( \Elementor\Core\Settings\EditorPreferences\Mo
 	);
 
 	$preferences->add_control(
-		'styliner_grid_color',
+		'styliner_columns_color',
 		[
-			'label' => esc_html__('Grid Color', 'textdomain'),
+			'label' => esc_html__('Columns Color', 'textdomain'),
 			'type' => \Elementor\Controls_Manager::COLOR,
-			'default' => "#ff000026",
+			'default' => "#ff00000A",
+			'condition' => [
+				'styliner_grid' => 'yes'
+			]
+		]
+	);
+
+	$preferences->add_control(
+		'styliner_rows_color',
+		[
+			'label' => esc_html__('Rows Color', 'textdomain'),
+			'type' => \Elementor\Controls_Manager::COLOR,
+			'default' => "#ff00000A",
 			'condition' => [
 				'styliner_grid' => 'yes'
 			]
@@ -50,4 +63,4 @@ function add_preferences_controls( \Elementor\Core\Settings\EditorPreferences\Mo
 
 	$preferences->end_injection();
 }
-add_action('elementor/element/editor-preferences/preferences/before_section_end', 'add_preferences_controls' );
+add_action('elementor/element/editor-preferences/preferences/before_section_end', 'add_preferences_controls');
