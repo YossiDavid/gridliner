@@ -7,7 +7,12 @@ jQuery(window).on("elementor:init", () => {
 			for (let setting in view.changed) {
 				// only listen to our controls
 				if (
-					!["styliner_grid", "styliner_grid_color"].includes(setting)
+					![
+						"styliner_grid",
+						"styliner_grid_color",
+						"styliner_columns_color",
+						"styliner_rows_color",
+					].includes(setting)
 				) {
 					continue
 				}
