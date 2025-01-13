@@ -10,6 +10,8 @@ if (!defined('ABSPATH')) exit;
  * Text Domain: gridliner
  */
 
+define('GRIDLINER_URL', __FILE__);
+
 add_filter('plugin_row_meta', function ($links_array, $plugin_file_name, $plugin_data, $status) {
 	if (strpos($plugin_file_name, basename(__FILE__))) {
 
@@ -45,6 +47,12 @@ add_action('elementor/preview/enqueue_styles', function () {
 
 add_action('elementor/editor/init', function () {
 	require_once plugin_dir_path(__FILE__) . '/grid-settings.php';
+});
+
+add_action('elementor/controls/register', function ($controls_manager) {
+	require_once(plugin_dir_path(__FILE__) . '/elementor/controls/color.php');
+
+	$controls_manager->register(new \Color_Control());
 });
 
 //Update Manager
